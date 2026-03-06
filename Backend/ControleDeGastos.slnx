@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ControleDeGastos.API/ControleDeGastos.API.csproj" Id="ce13edd8-de12-41bb-a966-9f8e2f938f0d" />
+    <Project Path="src/ControleDeGastos.Application/ControleDeGastos.Application.csproj" Id="121a84b0-d847-43b7-928e-30da3e617ffd" />
+    <Project Path="src/ControleDeGastos.Domain/ControleDeGastos.Domain.csproj" Id="c0dca52d-218b-43d4-84f0-3f989067a161" />
+    <Project Path="src/ControleDeGastos.Infrastructure/ControleDeGastos.Infrastructure.csproj" />
+  </Folder>
+</Solution>
