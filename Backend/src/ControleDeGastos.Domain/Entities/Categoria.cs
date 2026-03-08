@@ -16,7 +16,9 @@ namespace ControleDeGastos.Domain.Entities
 
         [Required]
         public FinalidadeCategoria Finalidade { get; private set; }
-        public List<Transacao>? Transacoes { get; private set; } // Propriedade de navegação, apenas para facilitar consultas e garantir integridade referencial. 
+
+        // Propriedade de navegação, apenas para facilitar consultas e garantir integridade referencial.
+        public List<Transacao>? Transacoes { get; private set; }  
         private Categoria() { } // ctor do EF Core
         public Categoria(string descricao, FinalidadeCategoria finalidade)
         {
