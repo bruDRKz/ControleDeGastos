@@ -1,33 +1,41 @@
 ﻿using ControleDeGastos.Domain.Entities;
 using ControleDeGastos.Domain.Repositories.PessoaRepository;
+using Microsoft.EntityFrameworkCore;
 
 namespace ControleDeGastos.Infrastructure.DataAccess.Repositories
 {
     public class PessoaRepository : IPessoaRepository
     {
-        public Task AdicionarAsync(Pessoa pessoa)
+        private readonly ControleDeGastosDbContext _context;
+
+        public PessoaRepository(ControleDeGastosDbContext context) => _context = context;
+        public async Task AdicionarAsync(Pessoa pessoa)
         {
-            throw new NotImplementedException();
+            await _context.Pessoas.AddAsync(pessoa);
+            await _context.SaveChangesAsync();
+
         }
 
-        public Task AtualizarAsync(Pessoa pessoa)
+        public async Task AtualizarAsync(Pessoa pessoa)
         {
-            throw new NotImplementedException();
+            _context.Pessoas.Update(pessoa);
+            await _context.SaveChangesAsync();
         }
 
-        public Task ExcluirAsync(int id)
-        {
-            throw new NotImplementedException();
+        public async Task ExcluirAsync(Pessoa pessoa)
+        {             
+           _context.Pessoas.Remove(pessoa);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<Pessoa?> ObterPorIdAsync(int id)
+        public async Task<Pessoa?> ObterPorIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Pessoas.FindAsync(id);
         }
 
-        public Task<List<Pessoa>> ObterTodosAsync()
+        public async Task<List<Pessoa>> ObterTodosAsync()
         {
-            throw new NotImplementedException();
+            return await _context.Pessoas.AsNoTracking().ToListAsync();
         }
     }
 }

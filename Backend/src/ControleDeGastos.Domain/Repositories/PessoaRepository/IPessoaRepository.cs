@@ -8,6 +8,6 @@ namespace ControleDeGastos.Domain.Repositories.PessoaRepository
             Task<List<Pessoa>> ObterTodosAsync();
             Task AdicionarAsync(Pessoa pessoa);
             Task AtualizarAsync(Pessoa pessoa);
-            Task ExcluirAsync(int id);
+            Task ExcluirAsync(Pessoa pessoa);
     }
 }
