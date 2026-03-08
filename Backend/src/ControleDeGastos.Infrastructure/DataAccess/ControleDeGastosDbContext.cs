@@ -12,6 +12,7 @@ namespace ControleDeGastos.Infrastructure.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Preciso avisar o EF que Valor é um ValueObject e não uma tabela, para que ele possa tipar corretamente a coluna.
             modelBuilder.Entity<Transacao>()
                 .OwnsOne(t => t.Valor, moeda =>
                 {
@@ -19,6 +20,13 @@ namespace ControleDeGastos.Infrastructure.DataAccess
                          .HasColumnName("Valor")
                          .IsRequired();
                 });
+
+            // COnfig de Cascade Delete para (1 Pessoa <-> N Transações).
+            modelBuilder.Entity<Pessoa>()
+                .HasMany(p => p.Transacoes)
+                .WithOne()
+                .HasForeignKey(t => t.PessoaId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
