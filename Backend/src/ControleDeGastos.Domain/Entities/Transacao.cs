@@ -14,7 +14,7 @@ namespace ControleDeGastos.Domain.Entities
 
         [Required]
         [MaxLength(400)]
-        public string Descricao { get; private set; }
+        public string Descricao { get; private set; } = string.Empty;
 
         [Required]
         public Moeda Valor { get; private set; }

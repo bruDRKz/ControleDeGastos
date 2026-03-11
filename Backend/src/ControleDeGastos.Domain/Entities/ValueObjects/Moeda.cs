@@ -2,7 +2,7 @@
 {
     public class Moeda
     {
-        public decimal Valor { get; }
+        public decimal Valor { get; private set; }
         public Moeda() { }
         public Moeda(decimal valor)
         {
