@@ -15,6 +15,8 @@ namespace ControleDeGastos.Application
         {
             services.AddScoped<IPessoaUseCase, PessoaUseCase>();
             services.AddScoped<ICategoriaUseCase, CategoriaUseCase>();
+            services.AddScoped<IResumoPessoaUseCase, ResumoPessoasUseCase>();
+            services.AddScoped<ITransacaoUseCase, TransacaoUseCase>();
 
         }
     }

@@ -10,6 +10,12 @@ namespace ControleDeGastos.Application.UseCases
         private readonly IPessoaRepository _pessoaRepository;
         public PessoaUseCase(IPessoaRepository pessoaRepository) => _pessoaRepository = pessoaRepository;
 
+        public async Task<List<ResponsePessoaJson>> ListarPessoas()
+        {
+            var pessoas = await _pessoaRepository.ObterTodosAsync();
+            return pessoas.Select(p => new ResponsePessoaJson(p.Id, p.Nome, p.Idade)).ToList();
+        }
+
         public async Task<string> CriarPessoa(RequestCriaPessoaJson requestCriaPessoaJson)
         {
             await Validate(requestCriaPessoaJson);

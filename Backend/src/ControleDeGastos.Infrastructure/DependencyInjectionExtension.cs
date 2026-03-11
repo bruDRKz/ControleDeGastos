@@ -1,5 +1,6 @@
 ﻿using ControleDeGastos.Domain.Repositories.CategoriaRepository;
 using ControleDeGastos.Domain.Repositories.PessoaRepository;
+using ControleDeGastos.Domain.Repositories.TransacaoRepository;
 using ControleDeGastos.Infrastructure.DataAccess;
 using ControleDeGastos.Infrastructure.DataAccess.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +25,9 @@ namespace ControleDeGastos.Infrastructure
         {
             services.AddScoped<IPessoaRepository, PessoaRepository>();
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+            services.AddScoped<ITransacaoRepository, TransacaoRepository>();
+            services.AddScoped<IPessoaResumoRepository, PessoaResumoRepository>();
+
         }
     }
 }

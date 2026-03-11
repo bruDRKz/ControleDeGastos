@@ -1,5 +1,6 @@
 ﻿using ControleDeGastos.Application.DTOs;
 using ControleDeGastos.Application.UseCases.Interfaces;
+using ControleDeGastos.Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 namespace ControleDeGastos.API.Controllers
 {
@@ -7,6 +8,20 @@ namespace ControleDeGastos.API.Controllers
     [ApiController]
     public class PessoasController : ControllerBase
     {
+        [HttpGet]
+        public async Task<IActionResult> ListarPessoas(
+            [FromServices] IPessoaUseCase pessoaUseCase)
+        {
+            try
+            {
+                var result = await pessoaUseCase.ListarPessoas();
+                return Ok(result);
+            }
+            catch (Exception e)
+            {
+                throw new InvalidOperationException(e.Message);
+            }
+        }
         [HttpPost]
         public async Task<IActionResult> CriarPessoa(
             [FromServices] IPessoaUseCase pessoaUseCase,

@@ -23,8 +23,8 @@ namespace ControleDeGastos.Infrastructure.DataAccess.Repositories
         }
 
         public async Task ExcluirAsync(Pessoa pessoa)
-        {             
-           _context.Pessoas.Remove(pessoa);
+        {
+            _context.Pessoas.Remove(pessoa);
             await _context.SaveChangesAsync();
         }
 
@@ -36,6 +36,15 @@ namespace ControleDeGastos.Infrastructure.DataAccess.Repositories
         public async Task<List<Pessoa>> ObterTodosAsync()
         {
             return await _context.Pessoas.AsNoTracking().ToListAsync();
+        }
+
+        public async Task<bool> PessoaMenorDeIdade(int id)
+        {
+            var pessoa = await _context.Pessoas
+                .AsNoTracking()
+                .SingleAsync(p => p.Id == id);
+
+            return pessoa.MenorDeIdade();
         }
     }
 }

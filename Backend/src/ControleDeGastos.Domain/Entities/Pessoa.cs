@@ -23,8 +23,8 @@ namespace ControleDeGastos.Domain.Entities
             if (string.IsNullOrWhiteSpace(nome))
                 throw new ArgumentException("Nome é obrigatório.");
 
-            if (nome.Length > 400)
-                throw new ArgumentException("Nome deve ter no máximo 400 caracteres.");
+            if (nome.Length > 200)
+                throw new ArgumentException("Nome deve ter no máximo 200 caracteres.");
 
             if (idade < 0)
                 throw new ArgumentException("Idade inválida.");
@@ -45,7 +45,7 @@ namespace ControleDeGastos.Domain.Entities
         {
             if (string.IsNullOrWhiteSpace(novoNome))
                 throw new ArgumentException("O nome da pessoa é obrigatório.");
-            if (novoNome.Length > 400)
+            if (novoNome.Length > 200)
                 throw new ArgumentException("O nome da pessoa deve ter no máximo 200 caracteres.");
             Nome = novoNome;
         }
