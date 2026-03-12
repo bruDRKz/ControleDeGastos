@@ -1,6 +1,6 @@
 # ControleDeGastos
 
-Aplicação full stack desenvolvida como parte de um teste técnico.
+Aplicação full stack desenvolvida como parte de um teste técnico, onde era necessária a criação de um sistema gerenciador de finanças de uma casa.
 
 O sistema permite realizar o cadastro de **pessoas**, **categorias** e **transações financeiras**, além de visualizar o total de receitas, despesas e saldo de cada pessoa.
 
@@ -54,7 +54,7 @@ A API possui documentação interativa utilizando **Swagger**, permitindo testar
 
 O fluxo da aplicação segue a seguinte ideia:
 
-Primeiro são cadastradas **pessoas**, que representam os usuários do sistema.
+Primeiro são cadastradas **pessoas**, que representam os moradores da casa.
 
 Depois podem ser cadastradas **categorias**, utilizadas para classificar as transações financeiras.
 
@@ -88,7 +88,7 @@ Ao final da listagem é exibido também o **total geral consolidado**.
 
 ### Transações
 
-![Transações](docs/CategoriasFront.png)
+![Transações](docs/DashboardFront.png)
 
 # Como executar o projeto
 
