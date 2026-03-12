@@ -29,7 +29,7 @@ namespace ControleDeGastos.API.Controllers
         {
             // Pratica que particularmente gosto de usar: 
             // Colocar o Try/Catch na camada mais externa possivel da API, para que eu não precise tratar erros nas camadas internas,
-            // ja que a responsabilidade desse tratamento deve sempre ser do chamador.
+            // ja que a responsabilidade desse tratamento deve sempre ser do chamador. -> Isso pode ser notado em todas as controllers.
             try
             {
                 var result = await pessoaUseCase.CriarPessoa(request);

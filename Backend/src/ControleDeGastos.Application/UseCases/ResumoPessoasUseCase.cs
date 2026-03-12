@@ -14,6 +14,7 @@ namespace ControleDeGastos.Application.UseCases
         {
             List<PessoaResumoReadModel> pessoas = await _pessoaResumoRepository.ObterResumoAsync();
 
+            // Aqui eu monto o conjunto de dados que é exposto no dashboard, onde cada pessoa tem seu resumo individual e também o total geral de receitas e despesas.
             ResumoPessoasResponseDTO resumoPessoasDTO = new ResumoPessoasResponseDTO
             {
                 Pessoas = pessoas.Select(p => new PessoaResumoDTO

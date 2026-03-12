@@ -7,6 +7,8 @@ namespace ControleDeGastos.Application.UseCases
 {    
     public class PessoaUseCase : IPessoaUseCase
     {
+        // De modo geral, mantive os retornos dos métodos de casos de uso como string, para facilitar a comunicação (e o debug) com a camada de apresentação,
+        // onde eu posso retornar mensagens mais amigáveis. 
         private readonly IPessoaRepository _pessoaRepository;
         public PessoaUseCase(IPessoaRepository pessoaRepository) => _pessoaRepository = pessoaRepository;
 
