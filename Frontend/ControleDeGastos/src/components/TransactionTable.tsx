@@ -37,8 +37,13 @@ function formatTipo(tipo: "Receita" | "Despesa") {
 function formatValor(valor: number, tipo: "Receita" | "Despesa") {
     const receita = isReceita(tipo)
 
+    const valorFormatado = new Intl.NumberFormat("pt-BR", {
+        style: "currency",
+        currency: "BRL"
+    }).format(valor)
+
     return {
-        texto: `${receita ? "+" : "-"} R$ ${valor}`,
+        texto: `${receita ? "+" : "-"} ${valorFormatado}`,
         cor: receita ? "text-green-600" : "text-red-600"
     }
 }
